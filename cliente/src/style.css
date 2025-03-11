@@ -1,0 +1,130 @@
+.App{
+    /* border: solid 1px black; */
+    height: 100vh;
+    padding: 0px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.livros-container{
+    display: flex;
+    gap: 10px;    
+}
+
+.livro{
+    width: 250px; 
+    /* border: solid 1px rgb(168, 11, 11); */
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: center;
+}
+
+img{
+    width:200px;
+    height:300px;
+    object-fit:capa;
+    background-color: rgb(184, 245, 225);
+}
+
+.descr {
+    box-sizing: border-box;
+    max-width: 100%; /* Garante que a descrição não ultrapasse a largura do contêiner */
+    word-wrap: break-word; /* Quebra palavras longas */
+    overflow-wrap: break-word; /* Quebra palavras longas */
+    overflow: hidden; /* Esconde o texto que ultrapassar as bordas */
+    text-overflow: ellipsis; /* Adiciona "..." ao final do texto que ultrapassar as bordas */
+}
+.delete{
+    background-color: rgb(255, 255, 255);    
+    border: none;
+    padding: 3px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    border:1px solid rgb(245, 191, 191);
+    color:rgb(242, 100, 100);
+}
+.editar{
+    background-color: rgb(255, 255, 255);    
+    border: none;
+    padding: 3px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    border:1px solid rgb(204, 204, 243);
+    color:rgb(139, 139, 234);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input{
+    /* width: 250px; */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.botao{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: salmon;
+    cursor: pointer;    
+    color:rgb(255, 255, 255);
+}
+
+textarea{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.cabecalho{
+    display: flex;       
+    margin-bottom: 20px;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.cabecalho h1 {
+    margin: 0;
+}
+
+.cabecalho .botao_adicionar {
+    margin-left: 50px;
+    text-decoration: none; /* Adicionado para remover a decoração do texto */
+}
+
+.botao_adicionar a {
+    text-decoration: none; /* Adicionado para remover a decoração do texto */
+    color: inherit; /* Mantém a cor do texto */
+}
+
+.botao_adicionar {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(1, 117, 20, 0.664);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    color: rgba(1, 117, 20, 0.664);
+    height: 40px;
+}
+
+.botoes-editar-excluir {    
+    display: flex;
+    gap: 10px;
+}
