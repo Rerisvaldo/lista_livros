@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+}
+
+.livros-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;    
+}
+
+.livro {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    background-color: rgb(230, 255, 254);
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(7, 7, 7, 0.2);
+    /* Adiciona uma sombra */
+    margin-top: 5px;
+}
+
+img {
+    width: 200px;
+    height: 300px;
+    object-fit: capa;
+    box-shadow: 0 4px 8px rgba(7, 7, 7, 0.3);
+    /* Adiciona uma sombra */
+}
+
+.titulo {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.descr {
+    box-sizing: border-box;
+    max-width: 100%;
+    /* Garante que a descrição não ultrapasse a largura do contêiner */
+    word-wrap: break-word;
+    /* Quebra palavras longas */
+    overflow-wrap: break-word;
+    /* Quebra palavras longas */
+    overflow: hidden;
+    /* Esconde o texto que ultrapassar as bordas */
+    text-overflow: ellipsis;
+    /* Adiciona "..." ao final do texto que ultrapassar as bordas */
+    height: 9rem;
+    text-align: left;
+}
+
+.livros-container {
+    display: flex;
+    background-color: rgb(248, 254, 255);
+    
+}
+
+.botao_adicionar{
+    border: none;
+    background-color: #fff;
+}
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 12px;
+    gap: 50px;  
+    background: linear-gradient(to left, #fced68, #fff6a3);
+}
+ 
+.botao_adicionar a:hover {
+    background-color: rgb(101, 255, 148);
+    color: #000;  
+}
+
+.botao_adicionar a {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(79, 204, 116);    
+    border: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;    
+    font-size: 16px;
+    font-family: var(--descricao);    
+      
+}
+
+.delete {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    padding: 3px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(245, 191, 191);
+    color: rgb(242, 100, 100);
+}
+
+.editar {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    padding: 3px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(204, 204, 243);
+    color: rgb(139, 139, 234);
+}
+
+.botoes-delete-editar {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    height: auto;
+}
+
+.mensagem-sucesso {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.mensagem-sucesso.escondida {
+    opacity: 0;
+}

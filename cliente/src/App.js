@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Livros from "./paginas/Livros";
+import Livros from "./paginas/Livros";  
 import Update from "./paginas/Update";
 import Add from "./paginas/Add";
-import "./style.css";
+import"./paginas/Livros.css";
+import"./paginas/Add.css";
 function App() {
   return (
     <div className="App">
