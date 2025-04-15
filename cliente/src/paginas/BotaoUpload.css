@@ -22,7 +22,7 @@
 }
 
 .botao_upload {
-  padding: 8px 16px; /* Ajusta o padding para diminuir a área do botão */
+  padding: 5px  8px; /* Ajusta o padding para diminuir a área do botão */
   background-color: var(--cor-primaria); /* Cor de fundo */
   color: rgb(255, 255, 255); /* Cor do texto */
   font-size: 14px; /* Ajusta o tamanho da fonte */

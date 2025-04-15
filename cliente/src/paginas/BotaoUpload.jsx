@@ -6,7 +6,7 @@ const BotaoUpload = ({ onFileChange }) => {
     <div className="upload-container">
       
         <label htmlFor="upload" className="botao_upload">
-          Escolher arquivo
+          Imagem
         </label>
         <input
           type="file"

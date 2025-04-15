@@ -10,6 +10,7 @@ const Add = () => {
         descr: "",
     });
     const [file, setFile] = useState(null); // Novo estado para o arquivo
+    const [showPreview, setShowPreview] = useState(false); // Estado para controlar a visibilidade do contêiner de prévia
     const [errors, setErrors] = useState({}); // Estado para armazenar erros de validação
     const [charCount, setCharCount] = useState(0); // Estado para contar caracteres
     const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Add = () => {
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]); // Manipula o upload do arquivo
+        setShowPreview(true); // Exibe o contêiner de prévia quando um arquivo é selecionado
     };
 
     const validate = () => {
@@ -67,14 +69,28 @@ const Add = () => {
                     maxlength="40"
                 />
                 {errors.titulo && <span className="error-message">{errors.titulo}</span>}
-                <textarea
-                    className={`descricao ${errors.descr ? "error" : ""}`}
-                    placeholder="Descrição"
-                    onChange={handleChange}
-                    name="descr"
-                    value={livro.descr}
-                    maxlength="180" // Define o limite de caracteres
-                />
+
+                <div className="container-descricao-preview">
+                    {/* Exibe a prévia da imagem apenas se um arquivo for selecionado e o contêiner de prévia estiver visível */}
+                    {/* Contêiner de prévia da imagem */}
+                    {showPreview && file && (
+                        <div className="preview-container">
+                            <img
+                                src={URL.createObjectURL(file)}
+                                alt="Prévia da imagem"
+                                className="preview-imagem"
+                            />
+                        </div>
+                    )}
+                    <textarea
+                        className={`descricao ${errors.descr ? "error" : ""}`}
+                        placeholder="Descrição"
+                        onChange={handleChange}
+                        name="descr"
+                        value={livro.descr}
+                        maxlength="180" // Define o limite de caracteres
+                    />
+                </div>
                 <div className="char-count">{charCount}/180 caracteres</div>
                 {errors.descr && <span className="error-message">{errors.descr}</span>}
                 <div className="container_botoes">
@@ -82,6 +98,7 @@ const Add = () => {
                     <button className="botao" onClick={handleClick}>Adicionar</button>
                 </div>
             </div>
+
         </div>
     );
 };

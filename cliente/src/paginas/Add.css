@@ -37,8 +37,7 @@
 
 .formulario input[type="text"],
 .formulario input[type="file"],
-.formulario textarea,
-.formulario .botao_upload {
+.formulario textarea{
     width: 100%;
     /* Define a largura de todos os elementos */
     padding: 10px;
@@ -50,16 +49,16 @@
 .formulario textarea {
     resize: none;   
     font-family: var(--fonte-descricao);
-    font-size: 16px;
-    height: 140px;
+    font-size: 14px;
+    height: 120px;
 }
 
 .formulario .botao {
     border: none;
-    background-color: var(--cor-primaria);
+    background-color:  #4caf50;
     color: white;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px 8px;
     font-size: 14px;
     border-radius: 5px;
     font-family: var(--fonte-primaria);
@@ -67,7 +66,7 @@
 }
 
 .formulario .botao:hover {
-    background-color: var(--cor-secundaria);
+    background-color:  #28ce2d;
 }
 .campo-texto-titulo, 
 .descricao {
@@ -85,4 +84,34 @@
 .campo-texto-titulo{
     font-family: var(--fonte-descricao);
     font-size: 16px;
+}
+.preview-container {        
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-descricao-preview{
+    width: 100%;
+    display: flex;    
+    gap: 5px;
+}
+
+.preview-container h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.preview-imagem {
+    width: 100%;
+    height: auto;    
+    object-fit: cover;
 }

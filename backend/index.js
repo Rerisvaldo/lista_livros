@@ -61,6 +61,23 @@ app.get("/livros", (req, res) => {
     });
 });
 
+// Rota para buscar um único livro
+app.get("/livros/:idlivros", (req, res) => {
+    const q = "SELECT idlivros, titulo, descr, capa FROM livros WHERE idlivros = ?";
+    const livroid = req.params.idlivros;
+
+    db.query(q, [livroid], (err, data) => {
+        if (err) {
+            console.error("Erro ao buscar livro:", err);
+            return res.status(500).json({ error: "Erro ao buscar livro" });
+        }
+        if (data.length === 0) {
+            return res.status(404).json({ error: "Livro não encontrado" });
+        }
+        return res.json(data[0]); // Retorna apenas o livro encontrado
+    });
+});
+
 // Rota para adicionar livro
 app.post("/livros", upload.single('file'), (req, res) => {
     console.log("Corpo da requisição recebido:", req.body);
@@ -95,7 +112,28 @@ app.delete("/livros/:idlivros", (req, res) => {
     });
 });
 
+// Rota para atualizar um livro
+app.put("/livros/:idlivros", upload.single("file"), (req, res) => {
+    const livroid = req.params.idlivros;
+
+    // Verifica se um novo arquivo foi enviado
+    const capaPath = req.file ? `/uploads/${req.file.filename}` : req.body.capa;
+
+    const { titulo, descr } = req.body;
+
+    const q = "UPDATE livros SET titulo = ?, descr = ?, capa = ? WHERE idlivros = ?";
+    const values = [titulo, descr, capaPath];
+
+    db.query(q, [...values, livroid], (err, data) => {
+        if (err) {
+            console.error("Erro ao atualizar livro:", err);
+            return res.status(500).json({ error: "Erro ao atualizar livro" });
+        }
+        return res.json("Livro atualizado com sucesso");
+    });
+});
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Middleware para servir arquivos estáticos
+
 // Rota para upload de imagens
 app.post("/uploads", upload.single("file"), (req, res) => {
     console.log("Requisição recebida para /uploads");
@@ -107,8 +145,6 @@ app.post("/uploads", upload.single("file"), (req, res) => {
     console.log("Arquivo enviado:", file);
     res.send("Arquivo enviado com sucesso.");
 });
-
-
 
 // Inicia o servidor
 app.listen(8800, () => {

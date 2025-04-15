@@ -1,0 +1,132 @@
+:root {
+    --cor-primaria: #007bff;
+    --cor-secundaria: #0056b3;
+    --fonte-primaria: 'Montserrat', sans-serif;
+    --fonte-secundaria: 'Roboto', sans-serif;
+    --fonte-descricao: 'Open Sans', sans-serif;
+}
+
+.container_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(250, 250, 250);
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    width: 400px;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);       
+}
+
+.campo-text-titulo,
+textarea {    
+    width: 100%;
+    /* Ambos ocupam 100% da largura do contêiner */
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    padding: 10px;
+    /* Adiciona espaçamento interno */
+    box-sizing: border-box;
+    /* Garante que o padding não afete a largura total */
+}
+.campo-text-titulo{
+    font-family: var(--fonte-descricao);
+    font-size: 16px;
+    /* Define um tamanho de fonte maior para o título */
+    
+}
+
+textarea {
+    resize: none;
+    /* Remove a opção de redimensionar */
+    height: 120px;
+    /* Define uma altura fixa para a textarea */
+    font-family: var(--fonte-descricao);
+    font-size: 14px;
+    pointer-events: auto;
+}
+
+.campo_texto {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 0px;
+    /* Corrige o erro de "Opx" */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.capa {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do contêiner */
+}
+
+.preview-imagem {
+    width: 100%;
+    /* Faz a imagem ocupar toda a largura do contêiner pai */
+    height: 100%;
+    /* Faz a imagem ocupar toda a altura do contêiner pai */
+    object-fit: cover;
+    /* Ajusta a imagem para cobrir o contêiner sem distorção */   
+}
+.container_descricao_contador{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.contador-caracteres {
+    font-size: 12px;
+    color: #555;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.botoes-container {
+    display: flex; /* Alinha os botões horizontalmente */
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 10px; /* Adiciona espaçamento entre os botões */    
+}
+.botao-cancelar {
+    background-color:#f44336; /* Vermelho */
+    color:#fff;    
+    padding: 5px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--fonte-primaria);
+    transition: background-color 0.3s ease;
+    border: none;
+}
+.botao-salvar {
+    background-color: #4caf50; 
+    color:#fff;    
+    padding: 5px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--fonte-primaria);
+    transition: background-color 0.3s ease;
+    border: none;
+}
+.campo-text-titulo:focus,
+textarea:focus {
+    outline: none; /* Remove o contorno padrão */
+    border: 1px solid var(--cor-primaria); /* Opcional: Adiciona uma borda personalizada */
+}

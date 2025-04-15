@@ -1,24 +1,28 @@
 * {
     margin: 0;
 }
-
+root{
+--cor-primaria: #007bff;
+    --cor-secundaria: #0056b3;
+    --fonte-primaria: 'Montserrat', sans-serif;
+    --fonte-secundaria: 'Roboto', sans-serif;
+    --fonte-descricao: 'Open Sans', sans-serif;
+}
 .livros-container {
     display: flex;
     justify-content: center;
-    gap: 20px;    
+    gap:20px;    
 }
 
 .livro {
-    width: 250px;
+    width: 230px;
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    flex-direction: column;    
     align-items: center;
     background-color: rgb(230, 255, 254);
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(7, 7, 7, 0.2);
-    /* Adiciona uma sombra */
+    padding: 10px;      
     margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);    
 }
 
 img {
@@ -36,7 +40,9 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    font-family:var(--fonte-primaria);
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .descr {
@@ -53,12 +59,13 @@ img {
     /* Adiciona "..." ao final do texto que ultrapassar as bordas */
     height: 9rem;
     text-align: left;
+    font-family: var(--fonte-descricao);
+    font-size: 15px;             
 }
 
 .livros-container {
     display: flex;
-    background-color: rgb(248, 254, 255);
-    
+    background-color: rgb(248, 254, 255);    
 }
 
 .botao_adicionar{
@@ -94,34 +101,6 @@ img {
       
 }
 
-.delete {
-    background-color: rgb(255, 255, 255);
-    border: none;
-    padding: 3px 6px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid rgb(245, 191, 191);
-    color: rgb(242, 100, 100);
-}
-
-.editar {
-    background-color: rgb(255, 255, 255);
-    border: none;
-    padding: 3px 6px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid rgb(204, 204, 243);
-    color: rgb(139, 139, 234);
-}
-
-.botoes-delete-editar {
-    width: auto;
-    display: flex;
-    gap: 10px;
-    justify-content: end;
-    height: auto;
-}
-
 .mensagem-sucesso {
     margin: 10px 0;
     padding: 10px;
@@ -135,4 +114,86 @@ img {
 
 .mensagem-sucesso.escondida {
     opacity: 0;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;        
+    
+}
+
+.botoes-delete-editar {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.botoes-delete-editar button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botoes-delete-editar .delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.botoes-delete-editar .editar {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Deixa as setas de navegação transparentes */
+.swiper-button-next,
+.swiper-button-prev {
+    opacity: 0.3; /* Define a transparência inicial */
+    transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+}
+
+/* Remove a transparência ao passar o mouse */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1; /* Define opacidade total ao passar o mouse */
+}
+
+/* Personaliza os botões de navegação do Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    color: white; /* Cor do ícone */
+    border-radius: 50%; /* Deixa os botões arredondados */
+    width: 40px; /* tamanho do círculo */
+    height: 40px; /* tamanho do círculo */   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+/* Remove a transparência ao passar o mouse */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro no hover */
+    transform: scale(1.1); /* Aumenta o botão levemente no hover */
+}
+
+/* Ajusta o tamanho da seta */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px; /* Reduz o tamanho da seta */
+    font-weight: bold; /* Aumenta a espessura da seta */
+}
+
+/* Ajusta a posição dos botões */
+.swiper-button-next {
+    right: 20px; /* Distância da borda direita */
+}
+
+.swiper-button-prev {
+    left: 20px; /* Distância da borda esquerda */
 }
