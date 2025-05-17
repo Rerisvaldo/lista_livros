@@ -1,38 +1,46 @@
+/* Reset de margens */
 * {
     margin: 0;
 }
-root{
---cor-primaria: #007bff;
+
+/* Variáveis globais */
+:root {
+    --cor-primaria: #007bff;
     --cor-secundaria: #0056b3;
     --fonte-primaria: 'Montserrat', sans-serif;
     --fonte-secundaria: 'Roboto', sans-serif;
     --fonte-descricao: 'Open Sans', sans-serif;
 }
+
+/* Estilização do contêiner de livros */
 .livros-container {
     display: flex;
     justify-content: center;
-    gap:20px;    
+    gap: 20px;
+    background-color: rgb(248, 254, 255);
 }
 
+/* Estilização de cada livro */
 .livro {
     width: 230px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
     background-color: rgb(230, 255, 254);
-    padding: 10px;      
+    padding: 10px;
     margin-top: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilização das imagens */
 img {
     width: 200px;
     height: 300px;
-    object-fit: capa;
+    object-fit: cover;
     box-shadow: 0 4px 8px rgba(7, 7, 7, 0.3);
-    /* Adiciona uma sombra */
 }
 
+/* Estilização do título */
 .titulo {
     height: 4rem;
     width: 100%;
@@ -40,67 +48,72 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family:var(--fonte-primaria);
+    font-family: var(--fonte-primaria);
     font-size: 18px;
     font-weight: bold;
 }
 
+/* Estilização da descrição */
 .descr {
     box-sizing: border-box;
     max-width: 100%;
-    /* Garante que a descrição não ultrapasse a largura do contêiner */
     word-wrap: break-word;
-    /* Quebra palavras longas */
     overflow-wrap: break-word;
-    /* Quebra palavras longas */
     overflow: hidden;
-    /* Esconde o texto que ultrapassar as bordas */
     text-overflow: ellipsis;
-    /* Adiciona "..." ao final do texto que ultrapassar as bordas */
     height: 9rem;
     text-align: left;
     font-family: var(--fonte-descricao);
-    font-size: 15px;             
+    font-size: 15px;
 }
 
-.livros-container {
-    display: flex;
-    background-color: rgb(248, 254, 255);    
-}
-
-.botao_adicionar{
+/* Botão de adicionar livro */
+.botao_adicionar {
     border: none;
     background-color: #fff;
 }
 
+.botao_adicionar a {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(79, 204, 116);
+    border: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: var(--fonte-descricao);
+}
+
+.botao_adicionar a:hover {
+    background-color: rgb(101, 255, 148);
+    color: #000;
+}
+
+/* Cabeçalho */
 .cabecalho {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 100%;
     padding: 12px;
-    gap: 50px;  
+    gap: 50px;
     background: linear-gradient(to left, #fced68, #fff6a3);
-}
- 
-.botao_adicionar a:hover {
-    background-color: rgb(101, 255, 148);
-    color: #000;  
+    box-sizing: border-box;
+    height: 70px;  
+
 }
 
-.botao_adicionar a {
-    text-decoration: none;
-    color: #fff;
-    background-color: rgb(79, 204, 116);    
-    border: none;
-    padding: 10px 12px;
-    border-radius: 10px;
-    cursor: pointer;    
-    font-size: 16px;
-    font-family: var(--descricao);    
-      
+.container-titulo-botao{
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    gap: 20px;    
+    width: 100%;
+    padding-left: 20px;
 }
 
+/* Mensagem de sucesso */
 .mensagem-sucesso {
     margin: 10px 0;
     padding: 10px;
@@ -112,18 +125,55 @@ img {
     opacity: 1;
 }
 
+
 .mensagem-sucesso.escondida {
     opacity: 0;
 }
 
+/* Estilização do Swiper */
 .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;        
-    
+    justify-content: center;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.swiper-button-next {
+    right: 20px;
+}
+
+.swiper-button-prev {
+    left: 20px;
+}
+
+/* Botões de deletar e editar */
 .botoes-delete-editar {
     display: flex;
     justify-content: space-between;
@@ -148,52 +198,50 @@ img {
     color: white;
 }
 
-/* Deixa as setas de navegação transparentes */
-.swiper-button-next,
-.swiper-button-prev {
-    opacity: 0.3; /* Define a transparência inicial */
-    transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+/* Campo de busca */
+.campo-busca {   
+    display: flex;
+    align-items: center;
+    justify-content: left;      
+    width: 100%;   
 }
 
-/* Remove a transparência ao passar o mouse */
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    opacity: 1; /* Define opacidade total ao passar o mouse */
+.input-busca {
+    width: 300px;
+    padding: 8px 0px 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0px 0px 20px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-right: none;
 }
 
-/* Personaliza os botões de navegação do Swiper */
-.swiper-button-next,
-.swiper-button-prev {
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-    color: white; /* Cor do ícone */
-    border-radius: 50%; /* Deixa os botões arredondados */
-    width: 40px; /* tamanho do círculo */
-    height: 40px; /* tamanho do círculo */   
+.input-busca:focus {
+    outline: none;   
+}
+
+/* Ícone de lupa */
+.icone-lupa {    
+    font-size: 20px;
+    color: #555;
+    pointer-events: none;
+}
+
+.container-icone-lupa {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease; /* Transição suave para hover */
+    border: solid 1px #ccc;
+    border-radius: 0px 20px 20px 0px;
+    padding:4px;
+    background-color: #fff;
+    border-left: none;
+
 }
 
-/* Remove a transparência ao passar o mouse */
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro no hover */
-    transform: scale(1.1); /* Aumenta o botão levemente no hover */
-}
-
-/* Ajusta o tamanho da seta */
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    font-size: 16px; /* Reduz o tamanho da seta */
-    font-weight: bold; /* Aumenta a espessura da seta */
-}
-
-/* Ajusta a posição dos botões */
-.swiper-button-next {
-    right: 20px; /* Distância da borda direita */
-}
-
-.swiper-button-prev {
-    left: 20px; /* Distância da borda esquerda */
+.mensagem-nenhum-livro {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
 }
